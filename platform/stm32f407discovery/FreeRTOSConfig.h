@@ -47,9 +47,7 @@
 #endif
 
 #define configUSE_PREEMPTION			1
-#define configUSE_IDLE_HOOK				1
-#define configUSE_TICK_HOOK				1
-#define configCPU_CLOCK_HZ				( ( unsigned long ) 16800000 )
+#define configCPU_CLOCK_HZ				( ( unsigned long ) 168000000 )
 #define configTICK_RATE_HZ				( ( TickType_t ) 1000 )
 #define configMAX_PRIORITIES			( 5 )
 #define configMINIMAL_STACK_SIZE		( ( unsigned short ) 130 )
@@ -62,10 +60,14 @@
 #define configQUEUE_REGISTRY_SIZE		8
 #define configCHECK_FOR_STACK_OVERFLOW	2
 #define configUSE_RECURSIVE_MUTEXES		1
-#define configUSE_MALLOC_FAILED_HOOK	1
 #define configUSE_APPLICATION_TASK_TAG	0
 #define configUSE_COUNTING_SEMAPHORES	1
 #define configGENERATE_RUN_TIME_STATS	0
+
+/* Hooks */
+#define configUSE_MALLOC_FAILED_HOOK	1
+#define configUSE_IDLE_HOOK				0
+#define configUSE_TICK_HOOK				0
 
 /* Co-routine definitions. */
 #define configUSE_CO_ROUTINES 		0
@@ -118,9 +120,9 @@ header file. */
 	
 /* Definitions that map the FreeRTOS port interrupt handlers to their CMSIS
 standard names. */
-#define vPortSVCHandler SVC_Handler
-#define xPortPendSVHandler PendSV_Handler
-#define xPortSysTickHandler SysTick_Handler
+#define vPortSVCHandler sv_call_handler
+#define xPortPendSVHandler pend_sv_handler
+#define xPortSysTickHandler sys_tick_handler
 
 #endif /* FREERTOS_CONFIG_H */
 

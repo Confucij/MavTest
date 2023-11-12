@@ -4,7 +4,11 @@
         "rcc.h": "c",
         "platform.h": "c",
         "gpio_common_f24.h": "c",
-        "gpio_common_f234.h": "c"
+        "gpio_common_f234.h": "c",
+        "mavlink.h": "c",
+        "freertos.h": "c",
+        "nvic.h": "c",
+        "scb.h": "c"
     },
     "cortex-debug.armToolchainPath": "/usr/bin",
     "cortex-debug.openocdPath": "/usr/bin/openocd",

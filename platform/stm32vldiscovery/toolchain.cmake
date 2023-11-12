@@ -10,15 +10,19 @@ find_program(ARM_OBJCOPY arm-none-eabi-objcopy)
 find_program(ARM_SIZE arm-none-eabi-size)
 
 set(PLATFORM_CFLAGS
-    -mcpu=cortex-m3 
+    -mcpu=cortex-m3
     -mfloat-abi=soft
-    -mthumb 
+    -mthumb
     --specs=nosys.specs
     -ffunction-sections
     -fdata-sections
+    # -pic
 )
 
 set(PLATFORM_LDFLAGS
+    -mcpu=cortex-m3
+    -mfloat-abi=soft
+    -mthumb
     -Wl,--gc-sections
     -mfloat-abi=soft
     --specs=nosys.specs
