@@ -1,0 +1,10 @@
+[
+    {
+        "name": "stm32f407",
+        "toolchainFile": "${workspaceFolder}/platform/stm32f407discovery/toolchain.cmake"
+    },
+    {
+        "name": "stm32f100",
+        "toolchainFile": "${workspaceFolder}/platform/stm32vldiscovery/toolchain.cmake"
+    }
+]
