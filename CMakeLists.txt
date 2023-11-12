@@ -33,6 +33,8 @@ endif()
 include(${CMAKE_SOURCE_DIR}/platform/${PLATFORM}/platform.cmake)
 include(${CMAKE_SOURCE_DIR}/platform/freertos.cmake)
 include(${CMAKE_SOURCE_DIR}/platform/libopencm3.cmake)
+include(${CMAKE_SOURCE_DIR}/platform/mavlink.cmake)
+
 
 add_link_options(
     -T ${CMAKE_SOURCE_DIR}/platform/app.ld
