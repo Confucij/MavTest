@@ -21,18 +21,28 @@ Repo has external dependencies that will be downloaded during configuration phas
 - `libopencm3` connected as a Git submodule and may be downloaded manually or via CMake (behaviour is controlled via `GIT_SUBMODULE` option)
 - `mavlink` library has same behavior as `libopencm3`
 
-## Supported platforms
+## Supported platforms and build
 
 Firmware was tested on two platforms: `STM32F4Discovery` and `STM32VLDiscovery`. To select either of this platforms pass toolchain file from the coresponding directory:
 ```bash
-git submodule update --init --recursive
+# For manual submodule pull
+#git submodule update --init --recursive
 # Configure for STM32VLDiscovery platform
 mkdir ./build
-cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE=./platform/stm32f407discovery/toolchain.cmake
+cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE=./platform/stm32f407discovery/toolchain.cmake -DGIT_SUBMODULE=ON
 cmake --build build
 ```
 
 Platform initialization is done inside `platform.c` file and definitions are inside `platform.h`.
+
+### Note on libopencm3 building
+As it uses as external command via makefile, so sometimes CMake may not rebuild it. For manual rebuild:
+```bash
+make -C lib/libopencm3 clean                    # clean
+make -C lib/libopencm3 V=1 TARGETS=stm32/f1     # Rebuild for stm32vldiscovery
+make -C lib/libopencm3 V=1 TARGETS=stm32/f4     # Rebuild for stm32F4discovery
+```
+
 
 # PC utility
 
