@@ -1,0 +1,6 @@
+#ifndef SYSTEM_CONFIG_H
+#define SYSTEM_CONFIG_H
+
+#define SYSTEM_ID 10
+
+#endif //SYSTEM_CONFIG_H

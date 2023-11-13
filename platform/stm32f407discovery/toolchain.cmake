@@ -10,16 +10,20 @@ find_program(ARM_OBJCOPY arm-none-eabi-objcopy)
 find_program(ARM_SIZE arm-none-eabi-size)
 
 set(PLATFORM_CFLAGS
-    -mcpu=cortex-m4 
+    -mthumb 
+    -march=armv7e-m 
     -mfloat-abi=hard
     -mfpu=fpv4-sp-d16
     -mthumb 
-    --specs=nosys.specs
     -ffunction-sections
     -fdata-sections
 )
 
 set(PLATFORM_LDFLAGS
+    -mthumb 
+    -march=armv7e-m 
+    -mfloat-abi=hard
+    -mfpu=fpv4-sp-d16
     -Wl,--gc-sections
     -mfloat-abi=hard
     --specs=nosys.specs
