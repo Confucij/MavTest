@@ -50,7 +50,7 @@ PC utility is writen in Python and uses `pymavlink` to generate and parse messag
 
 Run it like this:
 ```bash
-python3 test_util.py
+python3 pinger.py
 ```
 
 Serial port settings decalred inside executable file.
